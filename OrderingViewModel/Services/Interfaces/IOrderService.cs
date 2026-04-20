@@ -1,0 +1,14 @@
+﻿using OrderingModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OrderingViewModel.Services.Interfaces
+{
+    public interface IOrderService
+    {
+        Task<ItemResponse> SubmitOrderAsync(OrderRequest request, CancellationToken cancellationToken = default);
+    }
+}
