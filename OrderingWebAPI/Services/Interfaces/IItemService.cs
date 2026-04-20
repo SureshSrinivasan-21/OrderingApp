@@ -1,9 +1,9 @@
-﻿using OrderingWebAPI.Models;
+﻿using OrderingModel;
 
 namespace OrderingWebAPI.Services.Interfaces
 {
     public interface IItemService
     {
-        Task<IEnumerable<ItemDetail>> GetItemsAsync();
+        Task<IEnumerable<Items>> GetItemsAsync();
     }
 }

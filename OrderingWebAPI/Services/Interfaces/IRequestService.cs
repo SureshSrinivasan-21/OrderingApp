@@ -1,10 +1,10 @@
-﻿using OrderingWebAPI.Models;
+﻿using OrderingModel;
 
 namespace OrderingWebAPI.Services.Interfaces
 {
     public interface IRequestService
     {
 
-        Task<RequestDetails> GetAllRequestsAsync();
+        Task<OrderRequest> GetAllRequestsAsync();
     }
 }

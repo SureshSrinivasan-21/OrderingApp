@@ -1,4 +1,4 @@
-﻿using OrderingWebAPI.Models;
+﻿using OrderingModel;
 using OrderingWebAPI.Services.Interfaces;
 
 namespace OrderingWebAPI.Services
@@ -6,16 +6,16 @@ namespace OrderingWebAPI.Services
     public class ItemService : IItemService
     {
 
-        private readonly List<ItemDetail> _items = new List<ItemDetail>()
+        private readonly List<Items> _items = new List<Items>()
         {
-            new ItemDetail { Id = 1, Name = "Laptop" },
-            new ItemDetail { Id = 2, Name = "Phone" },
-            new ItemDetail { Id = 3, Name = "Headphones" }
+            new Items { Id = 1, Name = "Laptop" },
+            new Items { Id = 2, Name = "Phone" },
+            new Items { Id = 3, Name = "Headphones" }
         };
 
-        public Task<IEnumerable<ItemDetail>> GetItemsAsync()
+        public Task<IEnumerable<Items>> GetItemsAsync()
         {
-            return Task.FromResult<IEnumerable<ItemDetail>>(_items);
+            return Task.FromResult<IEnumerable<Items>>(_items);
         }
     }
 }

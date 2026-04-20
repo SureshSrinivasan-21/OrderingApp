@@ -1,16 +1,16 @@
-﻿using OrderingWebAPI.Models;
+﻿using OrderingModel;
 using OrderingWebAPI.Services.Interfaces;
 
 namespace OrderingWebAPI.Services
 {
     public class ResponseService : IResponseService
     {
-        public Task<ResponseDetails> OnSubmitOrderRespose(RequestDetails requestDetails)
+        public Task<ItemResponse> OnSubmitOrderRespose(OrderRequest requestDetails)
         {
-            var response = new ResponseDetails()
+            var response = new ItemResponse()
             {
-                IsSuccess = true,
-                ConfirmationId = Guid.NewGuid().ToString("N")[..10].ToUpperInvariant()
+                Success = true,
+                ConfirmationNumber = Guid.NewGuid().ToString("N")[..10].ToUpperInvariant()
             };
 
             return Task.FromResult(response);

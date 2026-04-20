@@ -10,6 +10,8 @@ namespace OrderingViewModel.Validators
 
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
+        public event Action<string>? ErrorUpdated;
+
         public bool HasErrors => _errors.Count > 0;
 
         public IEnumerable GetErrors(string? propertyName)
@@ -34,6 +36,7 @@ namespace OrderingViewModel.Validators
             {
                 errors.Add(error);
                 ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+                ErrorUpdated?.Invoke(GetConcatenatedMessage());
                 OnPropertyChanged(nameof(HasErrors));
             }
         }
@@ -43,8 +46,15 @@ namespace OrderingViewModel.Validators
             if (_errors.Remove(propertyName))
             {
                 ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+                ErrorUpdated?.Invoke(GetConcatenatedMessage());
                 OnPropertyChanged(nameof(HasErrors));
+
             }
+        }
+
+        private string GetConcatenatedMessage()
+        {
+            return string.Join("\n", _errors.Values.SelectMany(x => x));
         }
 
     }
