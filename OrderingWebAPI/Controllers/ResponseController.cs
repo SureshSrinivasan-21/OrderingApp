@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OrderingWebAPI.Models;
+using OrderingModel;
 using OrderingWebAPI.Services.Interfaces;
 
 namespace OrderingWebAPI.Controllers
@@ -16,21 +16,21 @@ namespace OrderingWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SubmitOrder([FromBody]RequestDetails requestDetails)
+        public async Task<IActionResult> SubmitOrder([FromBody]OrderRequest requestDetails)
         {
             if (requestDetails == null) 
             {
                 return BadRequest("Invalid input");
             }
-            if(requestDetails.Id <= 0)
+            if(requestDetails.ItemId <= 0)
             {
                 return BadRequest("Invalid request id");
             }
-            if (string.IsNullOrEmpty(requestDetails.DeliveryCity ) || string.IsNullOrWhiteSpace(requestDetails.DeliveryCity) || requestDetails.DeliveryCity.Length > 50) 
+            if (string.IsNullOrEmpty(requestDetails.City ) || string.IsNullOrWhiteSpace(requestDetails.City) || requestDetails.City.Length > 50) 
             {
                 return BadRequest("City details needed and it should not exceed 50 characters");
             }
-            if (string.IsNullOrEmpty(requestDetails.DeliveryState) || string.IsNullOrWhiteSpace(requestDetails.DeliveryState) || requestDetails.DeliveryState.Length > 50)
+            if (string.IsNullOrEmpty(requestDetails.State) || string.IsNullOrWhiteSpace(requestDetails.State) || requestDetails.State.Length > 2)
             {
                 return BadRequest("State details needed and it should not exceed 50 characters");
             }

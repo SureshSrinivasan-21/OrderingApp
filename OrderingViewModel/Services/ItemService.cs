@@ -23,7 +23,7 @@ namespace OrderingViewModel.Services
             }
             catch (Exception)
             {
-
+                //Log will be added here in future
             }
 
             await Task.Delay(500, cancellationToken);

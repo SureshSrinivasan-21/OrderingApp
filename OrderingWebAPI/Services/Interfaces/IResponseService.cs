@@ -1,9 +1,9 @@
-﻿using OrderingWebAPI.Models;
+﻿using OrderingModel;
 
 namespace OrderingWebAPI.Services.Interfaces
 {
     public interface IResponseService
     {
-        Task<ResponseDetails> OnSubmitOrderRespose(RequestDetails requestDetails);
+        Task<ItemResponse> OnSubmitOrderRespose(OrderRequest requestDetails);
     }
 }

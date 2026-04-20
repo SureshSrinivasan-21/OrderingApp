@@ -13,6 +13,7 @@
         <v:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <Style TargetType="TextBlock" x:Key="InnerTextBlocks">
             <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="25"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -24,12 +25,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="Place Order" FontSize="20" HorizontalAlignment="Center"/>
 
-        <Border Grid.Row="1" BorderThickness="1" CornerRadius="12" Background="White" BorderBrush="Black" Margin="10">
+        <Border Grid.Row="1" BorderThickness="1" CornerRadius="12" Background="White" BorderBrush="Black" Margin="10" Padding="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150"/>
@@ -51,17 +53,22 @@
 
 
                 <ComboBox Grid.Column="1" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                          DisplayMemberPath="Name" />
+                          DisplayMemberPath="Name" Margin="5,5"/>
                 <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding QuantityText, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" BorderBrush="Gray" Margin="5"/>
                 <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding City, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" BorderBrush="Gray" Margin="5"/>
-                <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding SelectedState, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" BorderBrush="Gray" Margin="5"/>
+                <!--<TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding SelectedState, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" BorderBrush="Gray" Margin="5"/>-->
 
+
+                <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding States}" SelectedItem="{Binding SelectedState, UpdateSourceTrigger=PropertyChanged}"
+           Margin="5,5"/>
                 <ProgressBar Grid.Row="4" Grid.ColumnSpan="2" Margin="5,15" Height="5" IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
-                <Button Content="Place Order" Grid.Row="5" Grid.ColumnSpan="2" Command="{Binding PlaceOrderCommand}" Margin="0,5" Height="25"/>
+                <Button Content="Place Order" Grid.Row="5" Grid.ColumnSpan="2" Command="{Binding PlaceOrderCommand}" Margin="5,5" Height="25"/>
             </Grid>
         </Border>
-        <StackPanel Grid.Row="2"
+
+        <Button Grid.Row="2" Command="{Binding ResetCommand}" Content="Reset" HorizontalAlignment="Right" Margin="20,5" />
+        <StackPanel Grid.Row="3"
                     Margin="0,16,0,0">
             <TextBlock Text="{Binding ErrorMessage}"
                        Foreground="Tomato"
@@ -73,10 +80,5 @@
                        FontWeight="SemiBold"
                        TextWrapping="Wrap" />
         </StackPanel>
-
-        <!--<TextBlock Grid.Row="3"
-                   VerticalAlignment="Bottom"
-                   Foreground="#666"
-                   Text="Validation is handled in the ViewModel using INotifyDataErrorInfo." />-->
     </Grid>
 </Window>

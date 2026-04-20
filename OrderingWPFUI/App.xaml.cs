@@ -21,7 +21,7 @@ namespace OrderingWPFUI
 
             services.AddHttpClient<IItemService, ItemService>(client =>
             {
-                client.BaseAddress = new Uri("https://example.com/");
+                client.BaseAddress = new Uri("https://localhost:7272/");
             });
 
             services.AddSingleton<IOrderService, OrderService>();
