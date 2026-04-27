@@ -1,12 +1,5 @@
-﻿using OrderingViewModel.Services.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderingViewModel
 {
@@ -26,7 +19,8 @@ namespace OrderingViewModel
                 return false;
 
             field = value;
-            OnPropertyChanged(propertyName);
+            if (propertyName != null)
+                OnPropertyChanged(propertyName);
             return true;
         }
     }

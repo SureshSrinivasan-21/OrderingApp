@@ -1,6 +1,4 @@
-﻿
-
-namespace OrderingModel
+﻿namespace OrderingModel
 {
     public class ItemResponse
     {
