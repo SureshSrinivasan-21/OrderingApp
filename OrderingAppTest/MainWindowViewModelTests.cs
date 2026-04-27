@@ -106,7 +106,7 @@ namespace OrderingAppTest
 
             vm.SelectedItem = vm.Items.First();
             vm.QuantityText = "2";
-            vm.City = "Seattle";
+            vm.City = "Bangalore";
             vm.SelectedState = "KA";
 
             Assert.True(vm.PlaceOrderCommand.CanExecute(null));
@@ -142,7 +142,7 @@ namespace OrderingAppTest
 
             vm.SelectedItem = vm.Items.First();
             vm.QuantityText = "2";
-            vm.City = "Seattle";
+            vm.City = "Bangalore";
             vm.SelectedState = "KA";
 
             vm.PlaceOrderCommand.Execute(null);
@@ -168,7 +168,7 @@ namespace OrderingAppTest
 
             vm.SelectedItem = vm.Items.First();
             vm.QuantityText = "2";
-            vm.City = "Seattle";
+            vm.City = "Bangalore";
             vm.SelectedState = "KA";
 
             // Introduce an error
