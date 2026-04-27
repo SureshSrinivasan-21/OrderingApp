@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderingView", "OrderingView.csproj", "{E1C960A6-A337-4201-9637-D0C0F74FE2DC}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderingModel", "..\OrderingModel\OrderingModel.csproj", "{9528D6A8-46EE-42EC-8E4F-F92DCB53F0E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderingWebAPI", "..\OrderingWebAPI\OrderingWebAPI.csproj", "{036BA547-2BBF-299D-E56F-9158D8CCDBB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderingWebAPITest", "..\OrderingAppTest\OrderingWebAPITest.csproj", "{81458224-E8DF-455A-A9C2-23132F251CF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{036BA547-2BBF-299D-E56F-9158D8CCDBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{036BA547-2BBF-299D-E56F-9158D8CCDBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{036BA547-2BBF-299D-E56F-9158D8CCDBB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81458224-E8DF-455A-A9C2-23132F251CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81458224-E8DF-455A-A9C2-23132F251CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81458224-E8DF-455A-A9C2-23132F251CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81458224-E8DF-455A-A9C2-23132F251CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
